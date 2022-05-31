@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>将模块编译进Linux内核 | IF-YiFan</title>
+  <title>gallery | IF-YiFan</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -522,14 +522,14 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        将模块编译进Linux内核
+        gallery
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2022-02-14 |
+          <i class="fas fa-calendar"></i> 发表于：2022-05-31 |
         </span>
       
 
@@ -553,31 +553,13 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="将模块编译进Linux内核"><a href="#将模块编译进Linux内核" class="headerlink" title="将模块编译进Linux内核"></a>将模块编译进Linux内核</h2><p>将写好的驱动按类别放入<code>Linux/drivers</code>中，修改所放入的类别中的<code>Makefile</code>与<code>Kconfig</code>.</p>
-<p>例如：<code>miscbeep.c</code></p>
-<p>在<code>Linux/drivers/misc</code>中创建一个文件夹，</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Kconfig</span><br><span class="line">├── Makefile</span><br><span class="line">├── miscbeep.c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <div class="gallery stretch" col='3'>
+              <p><img src="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj5.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj5.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="图片描述"><br><img src="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj7.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj7.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="图片描述"><br><img src="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj8.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj8.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="图片描述"><br><img src="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="图片描述"><br><img src="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj2.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/if-yifan/picture/bj2.png" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="图片描述"></p>
+            </div>
 
-<p>修改<code>misc</code>中的<code>Makefile</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加</span></span><br><span class="line">obj-$(CONFIG_BEEP)             += miscbeep/</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>miscbeep</code>中的<code>Makefile</code>与<code>Kconfig</code>：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Makefile</span></span><br><span class="line">obj-$(CONFIG_BEEP) += miscbeep.o</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Config</span></span><br><span class="line"><span class="meta">#beep</span></span><br><span class="line">menuconfig beep</span><br><span class="line">    config BEEP</span><br><span class="line">    <span class="type">bool</span> <span class="string">&quot;beep&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后<code>make menuconfig</code>选中beep模块，编译。</p>
 
       </div>
       <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/Linux/" class="">
-              Linux
-            </a>
-          
-        </div>
         
       </div>
       
@@ -588,25 +570,6 @@
 <div class="post-nav">
 
 
-
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="/medias/1.jpg" class="lazyload placeholder" data-srcset="/medias/1.jpg" srcset="https://img2.baidu.com/it/u=2037979560,2772131037&fm=26&fmt=auto&gp=0.jpg" alt="">
-    </div>
-    <a href="/2022/02/20/%E7%A7%81%E6%9C%89%E6%95%B0%E6%8D%AE/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">私有数据</div>
-      </div>
-      
-      <!-- <div class="content">
-        [[toc]]
-在Linux驱动开发中的私有数据​        大多数linux驱动开发中”，那就是将文件的私有的数据
-      </div> -->
-    </a>
-  </div>
 
 
 

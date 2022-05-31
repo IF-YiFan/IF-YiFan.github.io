@@ -229,9 +229,7 @@
               
                 <a href="/" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                  
-                  <span class="name">首页</span>
+                  <span class="name">🏠主页</span>
                 </a>
               
             </li>
@@ -240,9 +238,7 @@
               
                 <a href="/archives" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-archive" aria-hidden="true"></i>
-                  
-                  <span class="name">归档</span>
+                  <span class="name">🗄️抽屉</span>
                 </a>
               
             </li>
@@ -251,20 +247,7 @@
               
                 <a href="/tags" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-tags" aria-hidden="true"></i>
-                  
-                  <span class="name">标签</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
-                <a href="/categories" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-bookmark" aria-hidden="true"></i>
-                  
-                  <span class="name">分类</span>
+                  <span class="name">🏷️标签</span>
                 </a>
               
             </li>
@@ -273,9 +256,16 @@
               
                 <a href="/message" class="drawer-menu-item-link">
                   
-                    <i class="fas fa-user" aria-hidden="true"></i>
+                  <span class="name">📨留言板</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/gallery" class="drawer-menu-item-link">
                   
-                  <span class="name">留言板</span>
+                  <span class="name">📷图库</span>
                 </a>
               
             </li>
@@ -354,55 +344,45 @@
           
             <li class="menu-item" style="position: relative;">
               
-                <a href="/" class="menu-item-link" title="首页">
+                <a href="/" class="menu-item-link" title="🏠主页">
                   
-                    <i class="fas fa-home" aria-hidden="true"></i>
-                  
-                  <span class="name">首页</span>
+                  <span class="name">🏠主页</span>
                 </a>
               
             </li>
           
             <li class="menu-item" style="position: relative;">
               
-                <a href="/archives" class="menu-item-link" title="归档">
+                <a href="/archives" class="menu-item-link" title="🗄️抽屉">
                   
-                    <i class="fas fa-archive" aria-hidden="true"></i>
-                  
-                  <span class="name">归档</span>
+                  <span class="name">🗄️抽屉</span>
                 </a>
               
             </li>
           
             <li class="menu-item" style="position: relative;">
               
-                <a href="/tags" class="menu-item-link" title="标签">
+                <a href="/tags" class="menu-item-link" title="🏷️标签">
                   
-                    <i class="fas fa-tags" aria-hidden="true"></i>
-                  
-                  <span class="name">标签</span>
+                  <span class="name">🏷️标签</span>
                 </a>
               
             </li>
           
             <li class="menu-item" style="position: relative;">
               
-                <a href="/categories" class="menu-item-link" title="分类">
+                <a href="/message" class="menu-item-link" title="📨留言板">
                   
-                    <i class="fas fa-bookmark" aria-hidden="true"></i>
-                  
-                  <span class="name">分类</span>
+                  <span class="name">📨留言板</span>
                 </a>
               
             </li>
           
             <li class="menu-item" style="position: relative;">
               
-                <a href="/message" class="menu-item-link" title="留言板">
+                <a href="/gallery" class="menu-item-link" title="📷图库">
                   
-                    <i class="fas fa-user" aria-hidden="true"></i>
-                  
-                  <span class="name">留言板</span>
+                  <span class="name">📷图库</span>
                 </a>
               
             </li>
@@ -1364,6 +1344,191 @@
       //查询评论 valine.Q('*').limit(7) -- 查询所有，限制7条, 下面的的代码是查询当前页面
       var themeDanmu = eval('false');
       var themeLoop = eval('false');
+      var themeLooperTime = '5000' || 5000;
+      var speed = '40' || 20;
+      var isBarrager = true;
+      if (themeDanmu == true) {
+        do_barrager();
+        if ($('.danmuBox').length <= 0) {
+          $('.navbar').append('<div class="danmuBox"><div class="danmuBtn open"><span class="danmuCircle"></span><span class="danmuText">弹幕</span></div></div>');
+        }
+        $('.danmuBtn').on('click', debounce(
+          function () {
+            if ($('.danmuBtn').hasClass('open')) {
+              $('.danmuBtn').removeClass('open')
+              clearInterval(looperValine);
+              $.fn.barrager.removeAll();
+            } else {
+              $('.danmuBtn').addClass("open");
+              do_barrager();
+            }
+          }
+        ))
+      }
+      function do_barrager() {
+        isBarrager && valine.Q(window.location.pathname).find().then(function (comments) {
+          // var num = 0; // 可以记录条数，循环调用的时候只取最新的评论放入弹幕中
+          var run_once = true;
+          var looper_time = themeLooperTime;
+          var total = comments.length;
+          // var looper = null;
+          var index = 0;
+          if (total > 0) {
+            barrager();
+          } else {
+            // 当评论数为0的时候，自动关闭弹幕
+            // $('.danmuBtn').removeClass('open');
+          }
+          function barrager() {
+            if (run_once) {
+              //如果是首次执行,则设置一个定时器,并且把首次执行置为false
+              looperValine = setInterval(barrager, looper_time);
+              run_once = false;
+            }
+            var content = comments[index]._serverData.comment;
+            var email = comments[index]._serverData.mail;
+            var link = comments[index]._serverData.link;
+            var newcontent = content.substring(0, 50).replace(/<[^>]+>/g, "");
+            //发布一个弹幕
+            const item = {
+              img: `https://q1.qlogo.cn/g?b=qq&nk=${email}&s=640`, //图片 
+              info: newcontent, //文字 
+              href: link, //链接 
+              close: true, //显示关闭按钮 
+              speed: speed, //延迟,单位秒,默认6 
+              color: '#fff', //颜色,默认白色 
+              old_ie_color: '#000000', //ie低版兼容色,不能与网页背景相同,默认黑色
+            }
+            $('body').barrager(item);
+            //索引自增
+            index++;
+            //所有弹幕发布完毕，清除计时器。
+            if (index == total) {
+              clearInterval(looperValine);
+              if (themeLoop === true) {
+                setTimeout(function () {
+                  do_barrager();
+                }, 5000);
+              } else {
+                $('.danmuBtn').removeClass('open');
+              }
+              return false;
+            }
+
+          }
+        })
+      }
+    }
+  };
+  $(document).ready(load_valine);
+  document.addEventListener('pjax:send', function (e) {
+    
+  })
+  document.addEventListener('pjax:complete', function () {
+    load_valine();
+  });
+</script>
+
+  
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>      var themeLoop = eval('false');
       var themeLooperTime = '5000' || 5000;
       var speed = '40' || 20;
       var isBarrager = true;
