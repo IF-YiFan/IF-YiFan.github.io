@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>归档: 2023/5 | IF-YiFan</title>
+  <title>BSP_USB调试 | IF-YiFan</title>
 
   <link rel="icon" type="image/png" href="/medias/logo.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -509,106 +509,583 @@
     
 </header>
         <!-- 内容区域 -->
-        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
-  <div class="archive-header-title">
-    archive
-  </div>
-  <div class="archive-header-desc">
-  
-  <span class="title" id="archive-header-desc"></span>
-  <script>
-  function typedFn() {
-    const el = '#archive-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
-  
-  </div>
-  <div class="mask-box"></div>
-</div>
+        
+ <!-- prismjs 代码高亮 -->
+ 
 
-<div class="archive-video">
-  <video class="full-video" autoplay loop muted>
-      <source style="width: 100%;height: 100vh;" src="/">
-  </video>
-  <div class="video-header-title">
-    archive
-  </div>
-  <div class="video-header-desc">
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://kuku-keke.com/wp-content/uploads/2020/05/2753_3.png')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-      <span class="title" id="archive-video-header-desc"></span>
-      <script>
-  function typedFn() {
-    const el = '#archive-video-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        BSP_USB调试
+      </span>
+    </div>
+    
+    
       
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-07-09 |
+        </span>
+      
+
+      
+
+      
+    
   </div>
-  <div class="mask-box"></div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
 </div>
 
-<!-- hash算法 -->
 
 
-<div class="archive-main">
-  <section class="archive">
-    <div class="archive-content">
-      <ul class="post-archive">
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="USB识别错误或不识别调试错误"><a href="#USB识别错误或不识别调试错误" class="headerlink" title="USB识别错误或不识别调试错误"></a>USB识别错误或不识别调试错误</h1><p>在对一些usb,u盘进行调试，适配时，可能会出现usb无法识别，或者usb识别错误的问题。</p>
+<h2 id="USB协议介绍"><a href="#USB协议介绍" class="headerlink" title="USB协议介绍"></a>USB协议介绍</h2><p>​		USB是通用串行总线（Universal Serial Bus）的缩写。在USB总线出现之前，计算机与键盘、鼠标、扫描仪、打印机都使用专用的接口连接，不同设备的接口不能互用，扩展性很差，每次插拔设备都要关闭计算机，不支持热插拔，且通信速率很低。为了解决上述问题，USB总线诞生了。USB总线就好像一条管道，管道里流过的东西只要符合USB协议，至于具体流的是什么东西，USB总线并不关心，可以是自来水，可以是污水，可以是天然气，也可以是石油。对应具体的设备上，只要是支持USB协议的设备，都可以连接计算机，如USB键盘、USB鼠标、USB摄像头、USB音箱等。USB的出现简化了计算机与外围设备的连接，增强了扩展性，支持热插拔，且通信速度很快。</p>
+<div class="tagLink"><a class="link-card" title="USB_IF" target="_blank" rel="noopener" href="https://www.usb.org/"><span class="link-card-backdrop" style="background-image: url(https://www.usb.org/themes/usb_website_theme/logo.png)"></span><div class="left"><img src="https://www.usb.org/themes/usb_website_theme/logo.png" class="lazyload placeholder" data-srcset="https://www.usb.org/themes/usb_website_theme/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">USB_IF</p><p class="url">https://www.usb.org/</p></div></a></div>
+
+<p>关于USB的硬件和软件协议见百科</p>
+<div class="tagLink"><a class="link-card" title="维基_USB" target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/USB"><span class="link-card-backdrop" style="background-image: url(https://cdn.pixabay.com/photo/2018/12/05/13/41/panda-3857754__340.jpg)"></span><div class="left"><img src="https://cdn.pixabay.com/photo/2018/12/05/13/41/panda-3857754__340.jpg" class="lazyload placeholder" data-srcset="https://cdn.pixabay.com/photo/2018/12/05/13/41/panda-3857754__340.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">维基_USB</p><p class="url">https://zh.wikipedia.org/zh-tw/USB</p></div></a></div>
+
+<p>usb-device-tree-viewer</p>
+<div class="tagLink"><a class="link-card" title="usb-device-tree-viewer" target="_blank" rel="noopener" href="https://usb-device-tree-viewer.en.lo4d.com/windows"><span class="link-card-backdrop" style="background-image: url(https://cdn.lo4d.com/t/icon/128/usb-device-tree-viewer.png)"></span><div class="left"><img src="https://cdn.lo4d.com/t/icon/128/usb-device-tree-viewer.png" class="lazyload placeholder" data-srcset="https://cdn.lo4d.com/t/icon/128/usb-device-tree-viewer.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">usb-device-tree-viewer</p><p class="url">https://usb-device-tree-viewer.en.lo4d.com/windows</p></div></a></div>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="mermaid">flowchart BT;
+    HUB1--&gt;id1{CPU};
+	id1{CPU}--&gt;|GPIO控制切换|HUB2_SWITCH;
+	HUB2_SWITCH--&gt;id1{CPU};
+	host_usb1--&gt;HUB1;
+	host_usb2--&gt;HUB1;
+
+	u盘1-3.0--&gt;HUB2;
+	u盘2--&gt;HUB2;
+	u盘3--&gt;HUB2;
+	
+	HUB2--&gt;HUB2_SWITCH;
+	HUB2_SWITCH--&gt;HDMI1;
+	HUB2_SWITCH--&gt;OPS;
+	HUB2_SWITCH--&gt;TYPE-C;
+</div>
+
+<p>假设某设备的拓扑图如上所示</p>
+<h4 id="1-USB协议识别错误"><a href="#1-USB协议识别错误" class="headerlink" title="1.USB协议识别错误"></a>1.USB协议识别错误</h4><p>在一般情况下，若u盘1被识别成2.0，可以检查u盘1链路上的上电顺序，靠近HOST端先下电–&gt;HUB–&gt;切换switch。上电应先将switch切换–&gt;HUB–&gt;HOST，这样可以解决一些usb兼容性问题。</p>
+<h4 id="2-U盘不识别"><a href="#2-U盘不识别" class="headerlink" title="2.U盘不识别"></a>2.U盘不识别</h4><p>U盘不识别绝大部分是U盘格式的问题，检查U盘格式是否正确，分区表是否正常，是否有不正常的分区。</p>
+<p>在安卓平台可以抓取log分析</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logcat | gerp vold</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/BSP/" class="">
+              BSP
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>if</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2023/07/09/BSP-USB调试/" target="_blank" title="BSP_USB调试">http://example.com/2023/07/09/BSP-USB调试/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2023/07/09/BSP-USB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E6%96%B9%E6%B3%95/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">BSP_USB实现原理及方法</div>
+      </div>
+      
+      <!-- <div class="content">
+        USB的一些功能实现1.USB跟随在一些情况下，需要实现USB的跟随功能，即当插入或切换信号源时，USB需要跟随到该信号
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="http://rd5-public.zhaopin.cn/imgs/company/4e424fe6563cd77491cf63ca24d4eef6.jpg" class="lazyload placeholder" data-srcset="http://rd5-public.zhaopin.cn/imgs/company/4e424fe6563cd77491cf63ca24d4eef6.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/06/14/Tina%E4%BF%AE%E6%94%B9%E4%B8%B2%E5%8F%A3/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Tina修改串口</div>
+      </div>
+      <!-- <div class="content">
+        修改Tina Linux的调试串口从串口0修改到串口3
+需要修改
+
+修改env.cfg文件
+
+1device/confi
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+
+    <!-- 分享 -->
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='/medias/logo.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>IF-Yifan</h2>
         
         
+        
+          <p><span id="jinrishici-sentence">IF-YiFan</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
           
-            
-            <div class="year" data-aos="zoom-in-up">
-                <div class="bullet"></div>
-                <a href="/archives/2023">2023</a>
-            </div>
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
           
-          <li class="post-item" data-aos="fade-left">
+        
+          
+            <a href="/dyf15343384198@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/if-yifan"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1427076096"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#USB%E8%AF%86%E5%88%AB%E9%94%99%E8%AF%AF%E6%88%96%E4%B8%8D%E8%AF%86%E5%88%AB%E8%B0%83%E8%AF%95%E9%94%99%E8%AF%AF"><span class="toc-text">USB识别错误或不识别调试错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#USB%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D"><span class="toc-text">USB协议介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-USB%E5%8D%8F%E8%AE%AE%E8%AF%86%E5%88%AB%E9%94%99%E8%AF%AF"><span class="toc-text">1.USB协议识别错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-U%E7%9B%98%E4%B8%8D%E8%AF%86%E5%88%AB"><span class="toc-text">2.U盘不识别</span></a></li></ol></li></ol></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2023/05/30/%E7%94%A8Darknet%E8%AE%AD%E7%BB%83YOLOv3%E6%A8%A1%E5%9E%8B/" class="post-img " style="background-size: cover; 
+              <a href="/2023/07/09/BSP-%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://img03.sogoucdn.com/v2/thumb/retype_exclude_gif/ext/auto/crop/xy/ai/w/632/h/356?appid=200698&url=https://pic.baike.soso.com/ugc/baikepic2/0/20230302095038-1407736966_jpeg_632_417_24730.jpg/0" class="lazyload placeholder" data-srcset="https://img03.sogoucdn.com/v2/thumb/retype_exclude_gif/ext/auto/crop/xy/ai/w/632/h/356?appid=200698&url=https://pic.baike.soso.com/ugc/baikepic2/0/20230302095038-1407736966_jpeg_632_417_24730.jpg/0" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">05-30</span>
+                
+                  <span class="post-date">07-09</span>
+                
               </div>
-              <a class="post-title" href="/2023/05/30/%E7%94%A8Darknet%E8%AE%AD%E7%BB%83YOLOv3%E6%A8%A1%E5%9E%8B/">用Darknet训练YOLOv3模型</a>
+              <a class="post-title" href="/2023/07/09/BSP-%E8%B0%83%E8%AF%95%E7%BB%8F%E9%AA%8C/">BSP_调试经验</a>
             </div>
-          </li>
+          </div>
         
-      </ul>
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2023/07/09/BSP-%E4%BF%A1%E6%BA%90%E5%94%A4%E9%86%92/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">07-09</span>
+                
+              </div>
+              <a class="post-title" href="/2023/07/09/BSP-%E4%BF%A1%E6%BA%90%E5%94%A4%E9%86%92/">BSP_信源唤醒</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2023/07/09/BSP-USB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E6%96%B9%E6%B3%95/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">07-09</span>
+                
+              </div>
+              <a class="post-title" href="/2023/07/09/BSP-USB%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E6%96%B9%E6%B3%95/">BSP_USB实现原理及方法</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2023/07/09/BSP-USB%E8%B0%83%E8%AF%95/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://kuku-keke.com/wp-content/uploads/2020/05/2753_3.png" class="lazyload placeholder" data-srcset="https://kuku-keke.com/wp-content/uploads/2020/05/2753_3.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">07-09</span>
+                
+              </div>
+              <a class="post-title" href="/2023/07/09/BSP-USB%E8%B0%83%E8%AF%95/">BSP_USB调试</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2023/06/14/Tina%E4%BF%AE%E6%94%B9%E4%B8%B2%E5%8F%A3/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="http://rd5-public.zhaopin.cn/imgs/company/4e424fe6563cd77491cf63ca24d4eef6.jpg" class="lazyload placeholder" data-srcset="http://rd5-public.zhaopin.cn/imgs/company/4e424fe6563cd77491cf63ca24d4eef6.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-14</span>
+                
+              </div>
+              <a class="post-title" href="/2023/06/14/Tina%E4%BF%AE%E6%94%B9%E4%B8%B2%E5%8F%A3/">Tina修改串口</a>
+            </div>
+          </div>
+        
+      </div>
     </div>
   </section>
-  <div class="w-70">
+
     
   </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
